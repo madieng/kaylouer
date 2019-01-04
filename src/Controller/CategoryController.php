@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,12 +10,12 @@ use Symfony\Component\Routing\Annotation\Route;
 class CategoryController extends AbstractController
 {
     /**
-     * @Route("/category", name="category")
+     * @Route("/category/{slug}", name="category_show")
      */
-    public function index()
+    public function index(Category $category)
     {
         return $this->render('category/index.html.twig', [
-            'controller_name' => 'CategoryController',
+            'category' => $category,
         ]);
     }
 

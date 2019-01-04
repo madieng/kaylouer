@@ -1,0 +1,17 @@
+<!-- Three columns of text below the carousel -->
+<h1>Produits</h1>
+<div class="row">
+    {% for product in products %}
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ product.caption }}" class="card-img-top" alt="{{ product.name }}">
+                <div class="card-body">
+                    <p class="card-text">{{ product.description | raw }}</p>
+                    <span class="btn btn-outline-dark"><strong>{{ product.price }} &euro;</strong></span>
+                    <a href="#" class="btn btn-info float-lg-right ml-2" title="Voir le produit"><i class="far fa-eye"></i></a>
+                    <a href="#" class="btn btn-warning float-lg-right" title="Ajouter au panier"><i class="fas fa-plus"></i></a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div><!-- /.row -->

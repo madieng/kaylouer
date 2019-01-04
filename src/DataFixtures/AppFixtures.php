@@ -19,8 +19,9 @@ class AppFixtures extends Fixture
         for ($i = 0; $i < 15; $i++) {
             $category = new Category();
             $category->setName(join(' ', $faker->words(mt_rand(1, 2))));
-            $category->setCaption('https://picsum.photos/1585/600?image=' . mt_rand(0, 100));
-            $category->setDescription('<p>' . join('</p><p>', $faker->sentences(mt_rand(3, 5))) . '</p>');
+            $category->setCaption('https://picsum.photos/1585/600?image=' . mt_rand(0, 50));
+            $category->setDescription(join(' ', $faker->sentences(mt_rand(3, 5))));
+//            $category->setDescription('<p>' . join('</p><p>', $faker->sentences(mt_rand(3, 5))) . '</p>');
 
             $manager->persist($category);
 
@@ -34,6 +35,7 @@ class AppFixtures extends Fixture
 
             $product->setPrice(mt_rand(15, 50));
             $product->setQuantity(mt_rand(2, 10));
+            $product->setCaption('https://picsum.photos/200/250/?image=' . mt_rand(0, 50));;
             $product->setDescription(join(' ', $faker->sentences(mt_rand(3, 5))));
 
             $product->addCategory($categories[mt_rand(0, count($categories) - 1)]);
@@ -41,7 +43,7 @@ class AppFixtures extends Fixture
             for ($j = 0; $j < mt_rand(2, 6); $j++) {
                 $image = new Image();
                 $image->setName(join(' ', $faker->words(mt_rand(3, 4))));
-                $image->setUrl('https://picsum.photos/200/250/?image=' . mt_rand(0, 100));
+                $image->setUrl('https://picsum.photos/200/250/?image=' . mt_rand(0, 50));
                 $image->setDescription('<p>' . join('</p><p>', $faker->sentences(mt_rand(3, 5))) . '</p>');
                 $image->setProduct($product);
 

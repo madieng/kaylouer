@@ -1,0 +1,6 @@
+/* Top left text */
+.top-left {
+    position: absolute;
+    top: 45%;
+    left: 15%;
+}

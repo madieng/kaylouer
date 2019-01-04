@@ -60,6 +60,11 @@ class Product
      */
     private $images;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $caption;
+
     public function __construct()
     {
         $this->categories = new ArrayCollection();
@@ -215,6 +220,18 @@ class Product
                 $image->setProduct(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCaption(): ?string
+    {
+        return $this->caption;
+    }
+
+    public function setCaption(string $caption): self
+    {
+        $this->caption = $caption;
 
         return $this;
     }

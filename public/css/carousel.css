@@ -86,6 +86,11 @@ body {
 
 @media (min-width: 62em) {
     .featurette-heading {
-        margin-top: 7rem;
+        /*margin-top: 7rem;*/
     }
+}
+
+a, a:hover {
+    color: #5a5a5a !important;
+    text-transform: none !important;
 }

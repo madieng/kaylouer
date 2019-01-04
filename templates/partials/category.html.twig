@@ -1,10 +1,10 @@
 <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Catégories
+        <i class="far fa-folder"></i> Catégories
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         {% for category in categories %}
-            <a class="dropdown-item" href="#">{{ category.name | capitalize }}</a>
+            <a class="dropdown-item" href="{{ path('category_show', {'slug': category.slug}) }}">{{ category.name | capitalize }}</a>
         {% endfor %}
     </div>
 </li>

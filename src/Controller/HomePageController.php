@@ -15,7 +15,7 @@ class HomePageController extends AbstractController
     public function index(CategoryRepository $categoryRepository, ProductRepository $productRepository)
     {
         return $this->render('home_page/index.html.twig', [
-            'categories' => $categoryRepository->findBy([], null, 5),
+            'categories' => $categoryRepository->findAll(),
             'products' => $productRepository->findBy([], null, 3)
         ]);
     }
