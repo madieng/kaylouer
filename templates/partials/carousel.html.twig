@@ -1,7 +1,9 @@
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         {% for category in categories %}
-            <li data-target="#myCarousel" data-slide-to="{{ loop.index0 }}" {% if loop.first %} class="active" {% endif %}></li>
+            <li data-target="#myCarousel" class="mr-1 {% if loop.first %}active{% endif %}" data-slide-to="{{ loop.index0 }}" >
+                <img src="{{ category.caption }}" width="64" class="float-lg-right"/>
+            </li>
         {% endfor %}
     </ol>
     <div class="carousel-inner">

@@ -4,3 +4,12 @@
     top: 45%;
     left: 15%;
 }
+
+.carousel-indicators li {
+    width: 100% !important;
+    height: auto !important;
+}
+
+/*.carousel-indicators .active li {*/
+    /*border: 8px solid #fff !important;*/
+/*}*/
