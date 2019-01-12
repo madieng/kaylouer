@@ -56,11 +56,6 @@ class Product
     private $slug;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Image", mappedBy="product")
-     */
-    private $images;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
     private $caption;
@@ -68,7 +63,6 @@ class Product
     public function __construct()
     {
         $this->categories = new ArrayCollection();
-        $this->images = new ArrayCollection();
     }
 
     /**
@@ -189,37 +183,6 @@ class Product
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Images[]
-     */
-    public function getImages(): Collection
-    {
-        return $this->images;
-    }
-
-    public function addImage(Images $image): self
-    {
-        if (!$this->images->contains($image)) {
-            $this->images[] = $image;
-            $image->setProduct($this);
-        }
-
-        return $this;
-    }
-
-    public function removeImage(Images $image): self
-    {
-        if ($this->images->contains($image)) {
-            $this->images->removeElement($image);
-            // set the owning side to null (unless already changed)
-            if ($image->getProduct() === $this) {
-                $image->setProduct(null);
-            }
-        }
 
         return $this;
     }

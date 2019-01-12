@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marque - {{ make.name }}{% endblock %}
+
+{% block body %}
+{#<div class="container">#}
+    <div class="row ml-0 mb-4">
+        <img class="img-fluid" src="{{ make.caption }}" alt="{{ make.name }}"/>
+        <div class="container">
+            <div class="carousel-caption text-left top-left">
+                <h1>{{ make.name | upper }}</h1>
+                {{ make.description | raw }}
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        {% include 'partials/car.html.twig' with { 'cars': make.cars } %}
+    </div>
+    
+{#</div>#}
+{% endblock %}

@@ -32,9 +32,9 @@ class Image
     private $description;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Product", inversedBy="images")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Car", inversedBy="images")
      */
-    private $product;
+    private $car;
 
     public function getId(): ?int
     {
@@ -77,14 +77,14 @@ class Image
         return $this;
     }
 
-    public function getProduct(): ?Product
+    public function getCar(): ?Car
     {
-        return $this->product;
+        return $this->car;
     }
 
-    public function setProduct(?Product $product): self
+    public function setCar(?Car $car): self
     {
-        $this->product = $product;
+        $this->car = $car;
 
         return $this;
     }

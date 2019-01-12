@@ -2,28 +2,125 @@
 
 {% block title %}Accueil{% endblock %}
 
-{#{% block stylesheets %}#}
-    {#<link rel="stylesheet" href="/css/carousel.css" />#}
-{#{% endblock %}#}
-
 {% block body %}
 
     <main role="main">
+        <div class="jumbotron text-center bg-white">
+            <h2>Vous souhaitez voyager confortablement ? </h2>
+            <h4>Vous êtes au bon endroit !</h4>
+            <p class="lead"><strong>KayLouer</strong> vous met en relation avec les chauffeurs et les clients souhaitant voyager.</p>
+        </div>
 
-        {% include 'partials/carousel.html.twig' %}
+        <div class="section">
+			<div class="container">
+				<h2>Les dernières annonces publiées</h2>
+				<div class="row">
+                    <!-- Testimonial -->
+                    {% for i in 1..3 %}
+                        <div class="testimonial col-md-4 col-sm-6">
+                            <!-- Author Photo -->
+                            <div class="author-photo">
+                                <img src="http://lorempixel.com/100/100/people/{{ i }}/" alt="Author 1"><br/>
+                                <span class="author-info">{{ random(['Samba', 'Mamamdou', 'Lamine']) }} {{ random(['Guèye', 'Diao', 'Camara']) }}</span>
+                            </div>
+                            <div class="testimonial-bubble">
+                                <blockquote>
+                                    <!-- Quote -->
+                                    <p class="quote">
+                                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut."
+                                    </p>
+                                    <!-- Author Info -->
+                                    {# <cite class="author-info">
+                                        - ,<br>Managing Director at <a href="#">Some Company</a>
+                                    </cite> #}
+                                    <p>Jour de départ : <strong>11-02-2019</strong><br >
+                                    Ville de départ : <strong>{{ random(['Thiès', 'Mbour', 'Bargny']) }}</strong><br />
+                                    Ville d'arrivée : <strong>{{ random(['Dakar', 'Diourbel', 'Saly']) }}</strong></p>
+                                    <div class='row'>
+                                        <div class="col-6 text-left">Réponses <span class="badge badge-success">{{ random(10) }}</span></div>
+                                        <div class="col-6 text-right">
+                                            <a href="#" class='btn btn-success btn-sm'>En savoir plus</a>
+                                        </div>
+                                    </div>
+                                </blockquote>
+                                <div class="sprite arrow-speech-bubble"></div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+			</div>
+	    </div>
 
-        <div class="container marketing">
+        <div class="container">
+            <h3 class="my-4">Les chauffeurs les mieux notés</h3>
+            <div class="row">
+                {% for i in 1..3 %}
 
-            {% include 'partials/product.html.twig' %}
+                    <div class="testimonial col-md-4 col-sm-6">
+                    <!-- Author Photo -->
+                        <div class="author-photo">
+                            <img src="http://lorempixel.com/100/100/people/{{ i }}/" alt="Author 1"><br/>
+                            <cite class="author-info">{{ random(['Samba', 'Mamamdou', 'Lamine']) }} {{ random(['Guèye', 'Diao', 'Camara']) }}</cite>
+                        </div>
+                        <div class="bottom text-warning text-center">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>  
+                    </div>
 
-            {% include'partials/featurette.html.twig' %}
+{# 
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="card hovercard">
+                            <div class="cardheader"></div>
+                            <div class="avatar">
+                                <img alt="" src="http://lorempixel.com/100/100/people/{{ i }}/">
+                            </div>
+                            <div class="info">
+                                <div class="title">
+                                    <a target="_blank" href="https://scripteden.com/">Script Eden</a>
+                                </div>
+                                <div class="desc">Passionate designer</div>
+                                <div class="desc">Curious developer</div>
+                                <div class="desc">Tech geek</div>
+                            </div>
+                            <div class="bottom text-warning">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <div class="bottom">
+                                <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a class="btn btn-danger btn-sm" rel="publisher"
+                                href="https://plus.google.com/+ahmshahnuralam">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                                <a class="btn btn-primary btn-sm" rel="publisher"
+                                href="https://plus.google.com/shahnuralam">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
+                                    <i class="fa fa-behance"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div> #}
+                {% endfor %}
+            </div>
+		
+
+            {# {% include 'partials/car.html.twig' %} #}
+
+            {# {% include'partials/featurette.html.twig' %} #}
 
         </div>
 
     </main>
 
-{% endblock %}
-
-{% block javascripts %}
-    {#<script href="/js/holder.min.js" ></script>#}
 {% endblock %}
