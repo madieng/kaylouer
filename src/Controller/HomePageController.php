@@ -10,8 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 class HomePageController extends AbstractController
 {
     /**
-     * @Route("/", name="homepage")
-     *  @IsGranted("ROLE_USER")
+     * @Route("/", name="app_homepage")
      */
     public function index()
     {

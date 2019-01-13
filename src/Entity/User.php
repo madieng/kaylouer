@@ -5,10 +5,12 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Cocur\Slugify\Slugify;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
+ * @ORM\HasLifecycleCallbacks()
  */
 class User implements UserInterface
 {
@@ -51,7 +53,7 @@ class User implements UserInterface
     private $picture;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $description;
 
@@ -59,6 +61,30 @@ class User implements UserInterface
      * @ORM\Column(type="boolean")
      */
     private $active = true;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $slug;  
+
+    /**
+     * Permet d'initialiser des attributs avant l'ajout ou la mise à jour de l'objet tel que le slug
+     * 
+     * @ORM\PrePersist()
+     * @ORM\PreUpdate()
+     */
+    public function PrePersist()
+    {
+        if (empty($this->slug)) {
+            $slugify = new Slugify();
+            $this->setSlug($slugify->slugify($this->getFullname())); 
+        }
+    }
+
+    public function getFullname()
+    {
+        return $this->firstname . ' ' . $this->lastname;
+    }
 
     public function getId(): ?int
     {
@@ -194,6 +220,18 @@ class User implements UserInterface
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
 
         return $this;
     }
