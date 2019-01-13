@@ -2,21 +2,19 @@
 
 namespace App\Controller;
 
-use App\Repository\MakeRepository;
-use App\Repository\CarRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\IsGranted;
 
 class HomePageController extends AbstractController
 {
     /**
      * @Route("/", name="homepage")
+     *  @IsGranted("ROLE_USER")
      */
-    public function index(MakeRepository $makeRepository, CarRepository $carRepository)
+    public function index()
     {
-        return $this->render('home_page/index.html.twig', [
-            'makes' => $makeRepository->findAll(),
-            'cars' => $carRepository->findBy([], null, 20)
-        ]);
+        return $this->render('home_page/index.html.twig', []);
     }
 }

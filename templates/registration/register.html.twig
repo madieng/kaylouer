@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Inscription{% endblock %}
+
+{% block body %}
+<div class='container text-center w-50 m-auto pt-4'>
+    <fieldset>
+        <legend>S'inscrire</legend>
+        {{ form_start(registrationForm) }}
+            {{ form_widget(registrationForm) }}
+            {# {{ form_row(registrationForm.email) }}
+            {{ form_row(registrationForm.plainPassword) }} #}
+            <button class="btn btn-primary">Valider</button>
+        {{ form_end(registrationForm) }}
+    </fieldset>
+</div>
+{% endblock %}
