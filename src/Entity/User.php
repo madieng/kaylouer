@@ -11,8 +11,11 @@ use Cocur\Slugify\Slugify;
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  * @UniqueEntity(fields={"email"}, message="There is already an account with this email")
  * @ORM\HasLifecycleCallbacks()
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="discr", type="string")
+ * @ORM\DiscriminatorMap({"customer" = "Customer", "driver" = "Driver"})
  */
-class User implements UserInterface
+abstract class User implements UserInterface
 {
     /**
      * @ORM\Id()
