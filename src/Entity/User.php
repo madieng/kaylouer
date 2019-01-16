@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -51,11 +53,6 @@ abstract class User implements UserInterface
     private $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private $picture;
-
-    /**
      * @ORM\Column(type="text", nullable=true)
      */
     private $description;
@@ -68,7 +65,22 @@ abstract class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $slug;  
+    private $slug;
+
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\AdComment", mappedBy="user")
+     */
+    private $adComments;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Picture", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $picture;
+
+    public function __construct()
+    {
+        $this->adComments = new ArrayCollection();
+    }  
 
     /**
      * Permet d'initialiser des attributs avant l'ajout ou la mise à jour de l'objet tel que le slug
@@ -191,18 +203,6 @@ abstract class User implements UserInterface
         return $this;
     }
 
-    public function getPicture(): ?string
-    {
-        return $this->picture;
-    }
-
-    public function setPicture(?string $picture): self
-    {
-        $this->picture = $picture;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -235,6 +235,55 @@ abstract class User implements UserInterface
     public function setSlug(string $slug): self
     {
         $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|AdComment[]
+     */
+    public function getAdComments(): Collection
+    {
+        return $this->adComments;
+    }
+
+    public function addAdComment(AdComment $adComment): self
+    {
+        if (!$this->adComments->contains($adComment)) {
+            $this->adComments[] = $adComment;
+            $adComment->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdComment(AdComment $adComment): self
+    {
+        if ($this->adComments->contains($adComment)) {
+            $this->adComments->removeElement($adComment);
+            // set the owning side to null (unless already changed)
+            if ($adComment->getUser() === $this) {
+                $adComment->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPicture(): ?Picture
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?Picture $picture): self
+    {
+        $this->picture = $picture;
+
+        // set (or unset) the owning side of the relation if necessary
+        $newUser = $picture === null ? null : $this;
+        if ($newUser !== $picture->getUser()) {
+            $picture->setUser($newUser);
+        }
 
         return $this;
     }

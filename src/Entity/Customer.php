@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,18 +13,42 @@ class Customer extends User
 {
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\OneToMany(targetEntity="App\Entity\AdGrade", mappedBy="customer")
      */
-    private $testCustomer;
+    private $adGrades;
 
-    public function getTestCustomer(): ?string
+    public function __construct()
     {
-        return $this->testCustomer;
+        $this->adGrades = new ArrayCollection();
     }
 
-    public function setTestCustomer(string $testCustomer): self
+    /**
+     * @return Collection|AdGrade[]
+     */
+    public function getAdGrades(): Collection
     {
-        $this->testCustomer = $testCustomer;
+        return $this->adGrades;
+    }
+
+    public function addAdGrade(AdGrade $adGrade): self
+    {
+        if (!$this->adGrades->contains($adGrade)) {
+            $this->adGrades[] = $adGrade;
+            $adGrade->setCustomer($this);
+        }
+
+        return $this;
+    }
+
+    public function removeAdGrade(AdGrade $adGrade): self
+    {
+        if ($this->adGrades->contains($adGrade)) {
+            $this->adGrades->removeElement($adGrade);
+            // set the owning side to null (unless already changed)
+            if ($adGrade->getCustomer() === $this) {
+                $adGrade->setCustomer(null);
+            }
+        }
 
         return $this;
     }
