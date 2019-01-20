@@ -29,14 +29,14 @@ class AdGrade
     private $ad;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $grade;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
-    private $createdAt;
+    private $gradedAt;
 
     public function getId(): ?int
     {
@@ -79,14 +79,14 @@ class AdGrade
         return $this;
     }
 
-    public function getCreatedAt(): ?\DateTimeInterface
+    public function getGradedAt(): ?\DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->gradedAt;
     }
 
-    public function setCreatedAt(\DateTimeInterface $createdAt): self
+    public function setGradedAt(\DateTimeInterface $gradedAt): self
     {
-        $this->createdAt = $createdAt;
+        $this->gradedAt = $gradedAt;
 
         return $this;
     }

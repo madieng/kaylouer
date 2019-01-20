@@ -38,13 +38,13 @@ class Journey
      * @ORM\ManyToOne(targetEntity="App\Entity\Address", inversedBy="arrivalJourneys")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $arrivalAdress;
+    private $arrivalAddress;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Address", inversedBy="departureJourneys")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $arrivalAddress;
+    private $departureAddress;
 
     public function __construct()
     {
@@ -107,18 +107,6 @@ class Journey
         return $this;
     }
 
-    public function getArrivalAdress(): ?Address
-    {
-        return $this->arrivalAdress;
-    }
-
-    public function setArrivalAdress(?Address $arrivalAdress): self
-    {
-        $this->arrivalAdress = $arrivalAdress;
-
-        return $this;
-    }
-
     public function getArrivalAddress(): ?Address
     {
         return $this->arrivalAddress;
@@ -127,6 +115,18 @@ class Journey
     public function setArrivalAddress(?Address $arrivalAddress): self
     {
         $this->arrivalAddress = $arrivalAddress;
+
+        return $this;
+    }
+
+    public function getDepatureAddress(): ?Address
+    {
+        return $this->departureAddress;
+    }
+
+    public function setDepatureAddress(?Address $departureAddress): self
+    {
+        $this->departureAddress = $departureAddress;
 
         return $this;
     }

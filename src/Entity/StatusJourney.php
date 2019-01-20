@@ -11,6 +11,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class StatusJourney
 {
+    const CREATION = 1;
+    const RESPONDED = 2;
+    const ON_THE_WAY = 3;
+    const DONE = 4;
+    
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

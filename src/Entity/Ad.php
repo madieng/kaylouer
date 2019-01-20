@@ -29,7 +29,7 @@ class Ad
     private $createdAt;
 
     /**
-     * @ORM\Column(type="datetime")
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $updatedAt;
 
@@ -51,7 +51,7 @@ class Ad
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $appointmentAdress;
+    private $appointmentAddress;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\driver", inversedBy="respondedAds")
@@ -68,6 +68,7 @@ class Ad
         $this->adGrades = new ArrayCollection();
         $this->adComments = new ArrayCollection();
         $this->journeys = new ArrayCollection();
+        $this->createdAt = new \DateTime();
     }
 
     public function getId(): ?int
@@ -185,14 +186,14 @@ class Ad
         return $this;
     }
 
-    public function getAppointmentAdress(): ?string
+    public function getAppointmentAddress(): ?string
     {
-        return $this->appointmentAdress;
+        return $this->appointmentAddress;
     }
 
-    public function setAppointmentAdress(string $appointmentAdress): self
+    public function setAppointmentAddress(string $appointmentAddress): self
     {
-        $this->appointmentAdress = $appointmentAdress;
+        $this->appointmentAddress = $appointmentAddress;
 
         return $this;
     }
