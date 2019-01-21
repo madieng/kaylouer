@@ -1,20 +1,67 @@
 
 ###> symfony/framework-bundle ###
-/.env
-/.env.local
-/.env.local.php
-/.env.*.local
-/public/bundles/
-/var/
-/vendor/
+/back/.env
+/back/.env.local
+/back/.env.local.php
+/back/.env.*.local
+/back/public/bundles/
+/back/var/
+/back/vendor/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
-.phpunit
-/phpunit.xml
+/back/.phpunit
+/back/phpunit.xml
 ###< symfony/phpunit-bridge ###
 
 ###> symfony/web-server-bundle ###
-/.web-server-pid
+/back/.web-server-pid
 ###< symfony/web-server-bundle ###
-/nbproject/
+/back/nbproject/
+
+
+########## FRONT ##########
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/front/dist
+/front/tmp
+/front/out-tsc
+
+# dependencies
+/front/node_modules
+
+# profiling files
+/front/chrome-profiler-events.json
+/front/speed-measure-plugin.json
+
+# IDEs and editors
+.idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history/*
+
+# misc
+/front/.sass-cache
+/front/connect.lock
+/front/coverage
+/front/libpeerconnection.log
+/front/npm-debug.log
+/front/yarn-error.log
+/front/testem.log
+/front/typings
+
+# System Files
+/front/.DS_Store
+/front/Thumbs.db
