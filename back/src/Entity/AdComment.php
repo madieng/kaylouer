@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\AdCommentRepository")
  */
 class AdComment
@@ -17,13 +19,13 @@ class AdComment
     private $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\user", inversedBy="adComments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="adComments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\ad", inversedBy="adComments")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Ad", inversedBy="adComments")
      * @ORM\JoinColumn(nullable=false)
      */
     private $ad;

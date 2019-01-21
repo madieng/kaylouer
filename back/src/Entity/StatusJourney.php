@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource;
  * @ORM\Entity(repositoryClass="App\Repository\StatusJourneyRepository")
  */
 class StatusJourney
@@ -29,7 +31,7 @@ class StatusJourney
     private $label;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\journey", mappedBy="statusJourney")
+     * @ORM\OneToMany(targetEntity="App\Entity\Journey", mappedBy="statusJourney")
      */
     private $journeys;
 

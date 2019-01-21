@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\AddressRepository")
  */
 class Address
@@ -29,12 +31,12 @@ class Address
     private $zip;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\journey", mappedBy="arrivalAdress")
+     * @ORM\OneToMany(targetEntity="App\Entity\Journey", mappedBy="arrivalAdress")
      */
     private $arrivalJourneys;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\journey", mappedBy="arrivalAddress")
+     * @ORM\OneToMany(targetEntity="App\Entity\Journey", mappedBy="arrivalAddress")
      */
     private $departureJourneys;
 

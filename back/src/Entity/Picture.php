@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\PictureRepository")
  */
 class Picture
@@ -32,12 +34,12 @@ class Picture
     private $extension;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\user", inversedBy="picture", cascade={"persist", "remove"})
+     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="picture", cascade={"persist", "remove"})
      */
     private $user;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\vehicle", inversedBy="pictures")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Vehicle", inversedBy="pictures")
      */
     private $vehicle;
 

@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\TownRepository")
  */
 class Town
@@ -24,7 +26,7 @@ class Town
     private $label;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\address", mappedBy="town")
+     * @ORM\OneToMany(targetEntity="App\Entity\Address", mappedBy="town")
      */
     private $address;
 

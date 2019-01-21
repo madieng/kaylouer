@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
+ * @ApiResource
  * @ORM\Entity(repositoryClass="App\Repository\VehicleRepository")
  */
 class Vehicle
@@ -24,7 +26,7 @@ class Vehicle
     private $model;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\driver", inversedBy="vehicles")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Driver", inversedBy="vehicles")
      */
     private $driver;
 
