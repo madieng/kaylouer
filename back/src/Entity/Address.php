@@ -31,12 +31,12 @@ class Address
     private $zip;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Journey", mappedBy="arrivalAdress")
+     * @ORM\OneToMany(targetEntity="App\Entity\Journey", mappedBy="arrivalAddress")
      */
     private $arrivalJourneys;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Journey", mappedBy="arrivalAddress")
+     * @ORM\OneToMany(targetEntity="App\Entity\Journey", mappedBy="departureAddress")
      */
     private $departureJourneys;
 

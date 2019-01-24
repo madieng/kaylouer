@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -39,12 +40,14 @@ class Journey
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Address", inversedBy="arrivalJourneys")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("getAds")
      */
     private $arrivalAddress;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Address", inversedBy="departureJourneys")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("getAds")
      */
     private $departureAddress;
 

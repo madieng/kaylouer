@@ -134,3 +134,15 @@
   font-size: 0.8em;
 }
 
+.ngx-pagination .current {
+  background: #18BC9C !important;
+}
+
+.ngx-pagination a, .ngx-pagination button {
+  color: #18BC9C !important;
+}
+
+.ngx-pagination a:hover, .ngx-pagination button:hover {
+  background: #18BC9C !important;
+  color: #fff !important;
+}

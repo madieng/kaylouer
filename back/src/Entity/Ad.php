@@ -5,10 +5,11 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource
+ * @ApiResource(normalizationContext={"groups"={"getAds"}})
  * @ORM\Entity(repositoryClass="App\Repository\AdRepository")
  */
 class Ad
@@ -22,21 +23,25 @@ class Ad
 
     /**
      * @ORM\Column(type="text")
+     * @Groups("getAds")
      */
     private $description;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups("getAds")
      */
     private $createdAt;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Groups("getAds")
      */
     private $updatedAt;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\AdGrade", mappedBy="ad")
+     * @Groups("getAds")
      */
     private $adGrades;
 
@@ -57,11 +62,13 @@ class Ad
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Driver", inversedBy="respondedAds")
+     * @Groups("getAds")
      */
     private $driver;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Journey", mappedBy="ad")
+     * @Groups("getAds")
      */
     private $journeys;
 
