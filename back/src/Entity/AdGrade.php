@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
+use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -21,6 +22,7 @@ class AdGrade
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Customer", inversedBy="adGrades")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("getAds")
      */
     private $customer;
 
@@ -32,11 +34,13 @@ class AdGrade
 
     /**
      * @ORM\Column(type="integer", nullable=true)
+     * @Groups("getAds")
      */
     private $grade;
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
+     * @Groups("getAds")
      */
     private $gradedAt;
 

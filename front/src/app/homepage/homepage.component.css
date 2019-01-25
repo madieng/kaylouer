@@ -1,7 +1,7 @@
 ul.timeline {
   list-style-type: none;
   position: relative;
-  height: 75%;
+  /*height: 75%;*/
 }
 ul.timeline:before {
   content: ' ';
@@ -10,7 +10,7 @@ ul.timeline:before {
   position: absolute;
   left: 29px;
   width: 2px;
-  height: 80%;
+  height: 95%;
   z-index: 400;
 }
 ul.timeline > li {

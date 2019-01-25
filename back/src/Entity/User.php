@@ -5,10 +5,11 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
-use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Cocur\Slugify\Slugify;
+use Symfony\Component\Serializer\Annotation\Groups;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ApiResource
@@ -46,11 +47,13 @@ abstract class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("getAds")
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups("getAds")
      */
     private $lastname;
 
@@ -76,6 +79,7 @@ abstract class User implements UserInterface
 
     /**
      * @ORM\OneToOne(targetEntity="App\Entity\Picture", mappedBy="user", cascade={"persist", "remove"})
+     * @Groups("getAds")
      */
     private $picture;
 
