@@ -17,7 +17,7 @@
 ###> symfony/web-server-bundle ###
 /back/.web-server-pid
 ###< symfony/web-server-bundle ###
-/back/nbproject/
+/nbproject/
 
 
 ########## FRONT ##########

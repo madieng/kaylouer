@@ -9,7 +9,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource
+ * @ApiResource 
  * @ORM\Entity(repositoryClass="App\Repository\JourneyRepository")
  */
 class Journey
@@ -18,6 +18,7 @@ class Journey
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups("getAds")
      */
     private $id;
 
@@ -54,6 +55,7 @@ class Journey
     public function __construct()
     {
         $this->drivers = new ArrayCollection();
+        $this->arrivalAddress = new ArrayCollection();
         $this->departureAddress = new ArrayCollection();
     }
 
@@ -124,12 +126,12 @@ class Journey
         return $this;
     }
 
-    public function getDepatureAddress(): ?Address
+    public function getDepartureAddress(): ?Address
     {
         return $this->departureAddress;
     }
 
-    public function setDepatureAddress(?Address $departureAddress): self
+    public function setDepartureAddress(?Address $departureAddress): self
     {
         $this->departureAddress = $departureAddress;
 

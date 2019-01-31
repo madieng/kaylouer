@@ -12,9 +12,9 @@
     <h4 class="my-3">Les dernières annonces publiées</h4>
     <div class="row border rounded mt-2" *ngFor="let ad of ads | paginate: { itemsPerPage: 5, currentPage: page, totalItems: totalItems }">
       <div class="col-sm-3">
-        <ul class="timeline h-80">
-          <li>Thiès</li>
-          <li>Dakar</li>
+        <ul class="timeline h-80"  *ngFor="let journey of ad.journeys">
+          <li>{{journey.departureAddress.town.label}}</li>
+          <li>{{journey.arrivalAddress.town.label}}</li>
         </ul>
       </div>
       <div class="col-sm-9 py-3 pr-4 text-justify">{{ ad.description }}</div>

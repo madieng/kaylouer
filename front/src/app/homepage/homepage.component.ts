@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit {
   }
 
   initAds() {
-    this.adService.getAds(this.page).subscribe(data => {
+    this.adService.getHomeAds(this.page).subscribe(data => {
       this.ads = data['hydra:member'];
       this.totalItems = data['hydra:totalItems'];
     });

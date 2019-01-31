@@ -7,9 +7,17 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Doctrine\ORM\Mapping as ORM;
-
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\ExistsFilter;
 /**
- * @ApiResource(normalizationContext={"groups"={"getAds"}})
+ * @ApiResource(
+ *      collectionOperations={
+ *          "get",
+ *          "home"={"method"="GET", "path"="/ads/home", "normalization_context"={"groups"={"getAds"}}}
+ *      },
+ *      itemOperations={"get"}
+ * )
+ * @ApiFilter(ExistsFilter::class, properties={"journeys"})
  * @ORM\Entity(repositoryClass="App\Repository\AdRepository")
  */
 class Ad
@@ -35,7 +43,6 @@ class Ad
 
     /**
      * @ORM\Column(type="datetime", nullable=true)
-     * @Groups("getAds")
      */
     private $updatedAt;
 
