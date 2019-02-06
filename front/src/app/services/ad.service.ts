@@ -15,6 +15,6 @@ export class AdService {
   }
 
   getHomeAds(page) {
-    return this.http.get(this.apiUrl + "/home?journeys[exists]=true&page=" + page);
+    return this.http.get(this.apiUrl + "/home?driver[exists]=true&page=" + page);
   }
 }

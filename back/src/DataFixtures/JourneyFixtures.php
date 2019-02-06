@@ -37,7 +37,7 @@ class JourneyFixtures extends Fixture implements DependentFixtureInterface {
         for ($index = 1; $index < 21; $index++) {
             $favoriteJourney = new Journey();
             $favoriteJourney->setStatusJourney($this->getReference('status_'. StatusJourney::CREATION))
-                    ->setDepatureAddress($this->getReference('address_departure_'. mt_rand(1, 10)))
+                    ->setDepartureAddress($this->getReference('address_departure_'. mt_rand(1, 10)))
                     ->setArrivalAddress($this->getReference('address_arrival_'. mt_rand(1, 10)));
             
             $manager->persist($favoriteJourney);
@@ -49,7 +49,7 @@ class JourneyFixtures extends Fixture implements DependentFixtureInterface {
         for ($index = 1; $index < 16; $index++) {
             $journey = new Journey();
             $journey->setStatusJourney($this->getReference('status_'.$faker->randomElement($statutes)))
-                    ->setDepatureAddress($this->getReference('address_departure_'. mt_rand(1, 10)))
+                    ->setDepartureAddress($this->getReference('address_departure_'. mt_rand(1, 10)))
                     ->setArrivalAddress($this->getReference('address_arrival_'. mt_rand(1, 10)));
             
             $manager->persist($journey);
@@ -61,7 +61,7 @@ class JourneyFixtures extends Fixture implements DependentFixtureInterface {
         for ($index = 1; $index < 6; $index++) {
             $journey = new Journey();
             $journey->setStatusJourney($this->getReference('status_'. StatusJourney::CREATION))
-                    ->setDepatureAddress($this->getReference('address_departure_'. mt_rand(1, 10)))
+                    ->setDepartureAddress($this->getReference('address_departure_'. mt_rand(1, 10)))
                     ->setArrivalAddress($this->getReference('address_arrival_'. mt_rand(1, 10)));
             
             $manager->persist($journey);

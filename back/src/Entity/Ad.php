@@ -17,7 +17,7 @@ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\ExistsFilter;
  *      },
  *      itemOperations={"get"}
  * )
- * @ApiFilter(ExistsFilter::class, properties={"journeys"})
+ * @ApiFilter(ExistsFilter::class, properties={"journeys","driver"})
  * @ORM\Entity(repositoryClass="App\Repository\AdRepository")
  */
 class Ad

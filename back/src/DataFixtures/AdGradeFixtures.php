@@ -25,9 +25,9 @@ class AdGradeFixtures extends Fixture implements DependentFixtureInterface {
     {
         $faker = Factory::create('fr_FR');  
         
-        for ($index = 1; $index < 11; $index++) {
+        for ($index = 1; $index < 16; $index++) {
             $adGrade = new AdGrade();
-            $adGrade->setAd($this->getReference('responded_ad_'. mt_rand(1, 10)))
+            $adGrade->setAd($this->getReference('responded_ad_'. $faker->unique()->numberBetween(1, 15)))
                     ->setCustomer($this->getReference('customer_'. mt_rand(1, 20)));
             
             $isGrade = mt_rand(0, 1);
