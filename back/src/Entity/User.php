@@ -47,13 +47,13 @@ abstract class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $firstname;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $lastname;
 

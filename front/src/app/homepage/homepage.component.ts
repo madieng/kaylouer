@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { AdService } from '../services/ad.service';
+import { AdService } from '../services/ad/ad.service';
+import { StatusJourney } from '../models/statusJourney';
+
 
 @Component({
   selector: 'app-homepage',
@@ -8,11 +10,15 @@ import { AdService } from '../services/ad.service';
 })
 export class HomepageComponent implements OnInit {
   public ads;
-  public totalItems;
+  public totalItems : number;
   public page: number = 1;
+  StatusJourney = StatusJourney;
 
+  constructor(
+    private adService: AdService
+  ) {
 
-  constructor(private adService: AdService) { }
+  }
 
   ngOnInit() {
     this.initAds();

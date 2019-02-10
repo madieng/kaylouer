@@ -6,9 +6,18 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
- * @ApiResource
+ * @ApiResource(
+ *      collectionOperations={
+ *          "get"          
+ *      },
+ *      itemOperations={
+ *          "get",
+ *          "driver"={"method"="GET", "path"="/drivers-data/{id}", "normalization_context"={"groups"={"driver"}}}
+ *      }
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\DriverRepository")
  */
 class Driver extends User
@@ -16,6 +25,7 @@ class Driver extends User
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Vehicle", mappedBy="driver")
+     * @Groups("driver")
      */
     private $vehicles;
 
@@ -26,6 +36,7 @@ class Driver extends User
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Journey", mappedBy="drivers")
+     * @Groups("driver")
      */
     private $journeys;
 

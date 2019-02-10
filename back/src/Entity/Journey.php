@@ -35,6 +35,7 @@ class Journey
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\StatusJourney", inversedBy="journeys")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups("getAds")
      */
     private $statusJourney;
 

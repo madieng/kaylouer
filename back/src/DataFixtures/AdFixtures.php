@@ -31,7 +31,7 @@ class AdFixtures extends Fixture implements DependentFixtureInterface {
             $ad->setDescription($faker->unique()->paragraph(3, true))
                 ->setAppointmentAt($date)
                 ->setAppointmentAddress($faker->unique()->address)
-                ->addJourney($this->getReference('responded_journey_'. mt_rand(1, 15)))
+                ->addJourney($this->getReference('responded_journey_'. $index))
                 ->setDriver($this->getReference('driver_'. mt_rand(1, 10)));
             
             $manager->persist($ad);

@@ -1,0 +1,8 @@
+<div>
+  <p>{{driver.lastname}} {{driver.firstname}}</p>
+
+  <ul *ngFor="let vehicle of driver.vehicles">
+    <li>Marque : {{vehicle.brand.label}}</li>
+    <li>Modele : {{vehicle.model}}</li>
+  </ul>
+</div>

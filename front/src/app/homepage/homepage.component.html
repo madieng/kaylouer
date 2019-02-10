@@ -20,6 +20,7 @@
       <div class="col-sm-9 py-3 pr-4 text-justify">
         <span *ngFor="let grade of ad.adGrades">{{grade.customer.lastname}} {{grade.customer.firstname}}</span>
         a voyagé avec {{ad.driver.lastname}} {{ad.driver.firstname}}
+        <span *ngFor="let journey of ad.journeys"> Statut : {{StatusJourney[journey.statusJourney.label]}}</span>
       </div>
       <div class="col-sm-9 py-3 pr-4 text-justify">{{ ad.description }}</div>
     </div>
