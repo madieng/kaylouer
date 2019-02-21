@@ -18,7 +18,7 @@ class Address
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $id;
 
@@ -45,7 +45,7 @@ class Address
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Town", inversedBy="address")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $town;
 

@@ -9,6 +9,7 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { DriverComponent } from './driver/driver.component';
+import { CustomerComponent } from './customer/customer.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { DriverComponent } from './driver/driver.component';
     HomepageComponent,
     HeaderComponent,
     FooterComponent,
-    DriverComponent
+    DriverComponent,
+    CustomerComponent
   ],
   imports: [
     BrowserModule,

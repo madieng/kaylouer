@@ -18,7 +18,7 @@ class Journey
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $id;
 
@@ -35,21 +35,21 @@ class Journey
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\StatusJourney", inversedBy="journeys")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $statusJourney;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Address", inversedBy="arrivalJourneys")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $arrivalAddress;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Address", inversedBy="departureJourneys")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $departureAddress;
 

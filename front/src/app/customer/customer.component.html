@@ -1,0 +1,8 @@
+<div>
+  <p>{{customer.lastname}} {{customer.firstname}}</p>
+
+  <ul *ngFor="let vehicle of customer.vehicles">
+    <li>Marque : {{customer.brand.label}}</li>
+    <li>Modele : {{customer.model}}</li>
+  </ul>
+</div>

@@ -9,13 +9,15 @@ import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 })
 export class DriverComponent implements OnInit {
 
-  private driver; Object;
-  private id: number
+  private driver: Object;
+  private id: number;
 
   constructor(
     private driverService : DriverService,
     private route : ActivatedRoute
-  ) { }
+  ) {
+    this.driver = {};
+  }
 
   ngOnInit() {
     this.route.params.subscribe(

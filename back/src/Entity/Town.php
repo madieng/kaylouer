@@ -18,13 +18,13 @@ class Town
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups("getAds")
+     * @Groups({"getAds", "driver"})
      */
     private $label;
 

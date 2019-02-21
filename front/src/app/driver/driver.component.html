@@ -1,8 +1,17 @@
 <div>
   <p>{{driver.lastname}} {{driver.firstname}}</p>
 
+  <h2>Voitures</h2>
   <ul *ngFor="let vehicle of driver.vehicles">
+    <li>Voiture {{vehicle.id}}</li>
     <li>Marque : {{vehicle.brand.label}}</li>
     <li>Modele : {{vehicle.model}}</li>
+  </ul>
+
+  <h2>Trajets</h2>
+  <ul *ngFor="let journey of driver.journeys">
+    <li>Journey {{journey.id}}</li>
+    <li>Départ : {{journey.departureAddress.town.label}}</li>
+    <li>Arrivée : {{journey.arrivalAddress.town.label}}</li>
   </ul>
 </div>
